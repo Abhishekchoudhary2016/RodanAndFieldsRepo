@@ -52,16 +52,14 @@ public class ShopSkinCarePage {
 		select.selectByIndex(1);
 	}
 	
-	public String sortSearchResult()
+	public String getFirstElement()
 	{
-		List<WebElement> list= driver.findElements(lowToHighResult_xpath);
-		System.out.println(list.size());
-		String text=list.get(1).getText();
-		System.out.println();
-		for(int i=0; i<=list.size();i++)
-		{
-			if(list.get(i).getText().contains("CAD$ 51.00"));
-		}
+		String text=driver.findElement(By.xpath("//span[text()='CAD$ 51.00']")).getText();
+		return text;
+	}
+	public String getSecondElement()
+	{
+		String text=driver.findElement(By.xpath("//span[text()='CAD$ 55.00']")).getText();
 		return text;
 	}
 }
