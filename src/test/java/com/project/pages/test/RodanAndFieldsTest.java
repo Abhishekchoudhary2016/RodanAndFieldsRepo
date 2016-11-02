@@ -51,8 +51,11 @@ public class RodanAndFieldsTest {
 		String price= shopPage.getPriceForAssertion();
 		Assert.assertEquals(price, "CAD$ 71.00");
 		shopPage.selectLowToHigh();
-		//String text=shopPage.sortSearchResult();
-		//System.out.println(text);
+		String sortElement = driver.findElement(By.xpath("//span[text()='CAD$ 51.00']")).getText();
+		Assert.assertEquals(sortElement, "CAD$ 51.00");
+		sortElement = driver.findElement(By.xpath("//span[text()='CAD$ 55.00']")).getText();
+		Assert.assertEquals(sortElement, "CAD$ 55.00");
+		
 		
 	}
 	
